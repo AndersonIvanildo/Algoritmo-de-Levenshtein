@@ -108,6 +108,33 @@ with st.sidebar:
     algo_choice = st.radio("Estrutura:", ("Trie", "DAWG"), horizontal=True)
     k_value = st.slider("Sensibilidade (k):", 0, 3, 1)
     st.divider()
+    st.markdown("### Sobre o Projeto")
+    st.caption("**Disciplina:** Teoria dos Autômatos e Linguagens Formais 2025.2")
+    
+    st.markdown("#### Equipe")
+    
+    # Equipe
+    team_members = [
+        {"name": "Anderson Ivanildo", "url": "https://github.com/AndersonIvanildo"},
+        {"name": "Jonas Fontenele", "url": "https://github.com/jonas-ar"},
+        {"name": "Maciel", "url": "https://github.com/macielaraujo"},
+    ]
+    
+    col_team1, col_team2 = st.columns(2)
+
+    # URL do ícone oficial
+    github_icon = "https://cdn-icons-png.flaticon.com/512/25/25231.png"
+    
+    for i, member in enumerate(team_members):
+        col = col_team1 if i % 2 == 0 else col_team2
+        with col:
+            # Substitui espaços no nome por %20 para a URL funcionar
+            name_safe = member['name'].replace(" ", "%20")
+            
+            # Gera badge com logo do GitHub oficial
+            st.markdown(
+                f"[![GitHub](https://img.shields.io/badge/{name_safe}-181717?style=flat&logo=github&logoColor=white)]({member['url']})"
+            )
 
 # Inicialização
 try:
@@ -157,7 +184,7 @@ with tab2:
 
         st.markdown("### Análise do Autômato")
         annotated = "".join([t if v else f'<span class="error">{t}</span>' for t, v in token_status])
-        st.markdown(f'<div style="background-color:#fff; padding:15px; border-radius:5px; border:1px solid #ddd; font-family:monospace; font-size:1.1em;">{annotated}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div style="background-color:#fff; color:#000; padding:15px; border-radius:5px; border:1px solid #ddd; font-family:monospace; font-size:1.1em;">{annotated}</div>', unsafe_allow_html=True)
         st.divider()
 
         if unknown_words:
