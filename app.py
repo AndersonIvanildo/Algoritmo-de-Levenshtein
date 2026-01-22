@@ -5,6 +5,7 @@ import graphviz
 from nlp_automatos.loader import get_engine
 from nlp_automatos.trie import Trie
 from nlp_automatos.dawg import DAWG
+from nlp_automatos.tokenizer import tokenizer_dfa
 
 # Configuração da Página
 st.set_page_config(
@@ -31,7 +32,7 @@ def load_nlp_engine(algorithm_type):
 
 # Funções Auxiliares de Texto
 def tokenize(text):
-    return re.findall(r'\w+|[^\w]+', text, re.UNICODE)
+    return tokenizer_dfa.tokenize(text)
 
 def check_word_in_dict(engine, word):
     if len(word) < 2 or word.isdigit(): return True
@@ -118,6 +119,9 @@ with st.sidebar:
         {"name": "Anderson Ivanildo", "url": "https://github.com/AndersonIvanildo"},
         {"name": "Jonas Fontenele", "url": "https://github.com/jonas-ar"},
         {"name": "Maciel", "url": "https://github.com/macielaraujo"},
+        {"name": "Isaac", "url": "https://github.com/isaac-programmer"},
+        {"name": "Ianque Pereira", "url": "https://github.com/ianquepereira"},
+        {"name": "Jefferson", "url": "https://github.com/ianquepereira"},
     ]
     
     col_team1, col_team2 = st.columns(2)
