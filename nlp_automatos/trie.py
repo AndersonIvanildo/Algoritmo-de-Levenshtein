@@ -24,10 +24,7 @@ class Trie:
             if char not in node.children:
                 node.children[char] = TrieNode()
             node = node.children[char]
-        
-        # --- CORREÇÃO AQUI ---
-        # Antes estava 'self.is_word = True', o que estava errado.
-        # Agora marcamos o NÓ atual como final de palavra.
+
         node.is_word = True 
 
     def load_from_file(self, file_path: Path):
@@ -35,7 +32,6 @@ class Trie:
         if not file_path.exists():
             raise FileNotFoundError(f"Arquivo não encontrado: {file_path}")
         
-        # Adicionei um contador de debug para você confirmar que leu
         count = 0
         with file_path.open('r', encoding='utf-8', errors='ignore') as f:
             for line in f:
@@ -43,7 +39,7 @@ class Trie:
                 if word:
                     self.insert(word)
                     count += 1
-        print(f"--- [Trie] Total de palavras indexadas: {count} ---")
+        print(f"[Trie] Total de palavras indexadas: {count}")
 
     def search(self, word: str, max_k: int):
         word = word.lower()

@@ -118,6 +118,10 @@ with st.sidebar:
         {"name": "Anderson Ivanildo", "url": "https://github.com/AndersonIvanildo"},
         {"name": "Jonas Fontenele", "url": "https://github.com/jonas-ar"},
         {"name": "Maciel", "url": "https://github.com/macielaraujo"},
+        {"name": "Isac", "url": "https://github.com/macielaraujo"},
+        {"name": "Ianque", "url": "https://github.com/macielaraujo"},
+        {"name": "Jefferson", "url": "https://github.com/macielaraujo"},
+
     ]
     
     col_team1, col_team2 = st.columns(2)
